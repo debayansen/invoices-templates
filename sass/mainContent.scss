@@ -1,0 +1,54 @@
+@import "var.scss";
+
+.tableCommom{
+    tr{
+        background-color: #eee;
+        border-collapse: collapse;
+        &:nth-child(even){
+            background-color: #ddd;
+        }
+    }
+    th{
+        height: 20px;
+        text-decoration: underline;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+    }
+    td{
+        // background-color: #979799;
+        height: 15px;
+        // border: 2px solid #ddd;
+        border-collapse: collapse;
+        
+    }
+}
+
+.mainContentArea{
+    table{
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+
+        thead{
+            height: 30px;
+            @extend .tableCommom;
+        }
+        tbody{
+            @extend .tableCommom;
+        }
+        .rightAlign{
+            text-align: right;
+        }
+    }
+    .amount{
+        p{
+            padding: 5px 10px;
+            background-color: #ddd;
+        }
+
+        .underline_amount{
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    }
+}

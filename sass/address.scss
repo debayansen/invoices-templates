@@ -1,0 +1,49 @@
+@import "var.scss";
+
+.addressArea{
+    width: 100%;
+    margin-bottom: 5px;
+    .invoiceArea{
+        // width: 100%;
+        border-bottom: 1px solid black;
+        .row1{
+            @extend .rowCommon;
+        }
+        .row2{
+            @extend .rowCommon;
+        }
+    }
+    .addresses{
+        width:100%;
+        display: flex;
+        section{
+            padding: 2px;
+            width: calc(100%/2);
+            display: inline-block;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            &:last-child{
+                border-right: 0px solid black;
+            }
+            p{
+                margin: 0px;
+                padding: 2px;
+            }
+        }
+
+    }
+}
+
+
+.rowCommon{
+    display: block;
+    div{
+        display: inline-block;
+        width: calc((100%/4) - 5px);
+        padding: 2px 0px;
+    }
+}
+
+.sectionCommon{
+
+}

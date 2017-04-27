@@ -1,0 +1,34 @@
+@import "var.scss";
+@import "heading.scss";
+@import "address.scss";
+@import "mainContent.scss";
+@import "footer.scss";
+
+@page {
+    /* dimensions for the whole page */
+    size: A5;
+    margin: 0;
+}
+
+@media print {
+    footer {page-break-after: always;}
+}
+
+html {
+    /* off-white, so body edge is visible in browser */
+    // background: #eee;
+}
+
+body{
+    height: 210mm;
+    width: 148.5mm;
+    // margin: 0;
+    margin: auto;
+    padding: 0px;
+    font-family: $font-family;
+    font-size: $fontSize1;
+}
+
+.wrapper{
+    // width: 95%;
+}
