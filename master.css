@@ -1,0 +1,17 @@
+body{
+  margin: 0px;
+  padding: 0px;
+}
+.wrapper{
+  width: 90%;
+  border: 1px solid black;
+}
+table, tr, th, td{
+  border: 1px solid black;
+}
+.heading, thead, tr{
+  width: 100%;
+}
+/*.heading, td{
+  width: calc(100%/3);
+}*/

@@ -1,0 +1,30 @@
+body{
+  margin: auto;
+  padding: auto;
+  font-size: 14px;
+  font-family:"Arial";
+}
+
+.wrapper{
+  width: 90%;
+  /*border: 1px solid #979797;*/
+}
+
+.heading{
+  width: 100%;
+}
+.heading .topHeading,.heading .bottomHeading,{
+  width: 100%;
+  border: 1px solid red;
+  border-bottom: 2px solid black;
+}
+.heading > .topHeading > h1{
+  text-align: center;
+  margin: 0px;
+  padding: 5px 0px;
+}
+.heading > .bottomHeading > h2, p{
+  text-align: center;
+  margin: 0px;
+  padding: 2px 0px;
+}
