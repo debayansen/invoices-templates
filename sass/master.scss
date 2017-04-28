@@ -20,15 +20,18 @@ html {
 }
 
 body{
-    height: 210mm;
+    height: auto;
     width: 148.5mm;
     // margin: 0;
     margin: auto;
-    padding: 0px;
+    padding: 10px;
     font-family: $font-family;
     font-size: $fontSize1;
+    border: 1px solid red;
 }
 
 .wrapper{
     // width: 95%;
+    // position: absolute;
+    position: relative;
 }

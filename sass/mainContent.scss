@@ -2,24 +2,24 @@
 
 .tableCommom{
     tr{
-        background-color: #eee;
+        // background-color: #eee;
         border-collapse: collapse;
-        &:nth-child(even){
-            background-color: #ddd;
-        }
+        border-bottom: 1px solid #000;
+        border-left: 1px solid;
+        border-right: 1px solid;
     }
     th{
         height: 20px;
         text-decoration: underline;
         border-top: 2px solid black;
-        border-bottom: 2px solid black;
+        border-bottom: 1px solid black;
     }
     td{
         // background-color: #979799;
         height: 15px;
         // border: 2px solid #ddd;
         border-collapse: collapse;
-        
+
     }
 }
 
@@ -28,9 +28,11 @@
         width: 100%;
         text-align: center;
         border-collapse: collapse;
-
+        margin-bottom: 5px;;
         thead{
             height: 30px;
+            border-bottom: 1px solid #000;
+
             @extend .tableCommom;
         }
         tbody{
@@ -38,6 +40,7 @@
         }
         .rightAlign{
             text-align: right;
+            padding-right: 8px;
         }
     }
     .amount{

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>invoice template4</title>
+    <!-- <link rel="stylesheet" href="css/master.css"> -->
+  </head>
+  <body class="wrapper">
+
+    <!-- For Heading Area -->
+    <!-- <%= wicked_pdf_stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %> -->
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+        table thead { display: table-header-group; }
+        table tr { page-break-inside: avoid; }
+    </style>
+
+    <div id="page-wrapper" class="white-bg wrapper">
+
+        <div class="heading">
+            <div class="topHeading">
+                  <h1> Tax Invoice </h1>
+            </div>
+            <div class="bottomHeading">
+                <div class="row">
+                    <h2>Frank Ross Pharmacy</h2>
+                </div>
+                <div class="row">
+                    <p>ECO SPACE, BUILDING NO-2B, RAJARHAT, UNIT NO-2B001, PREMISES NO-11F/12, ACTION AREA-II, P.O-NEW TOWN, P.S-RAJARHAT, KOLKATA - 700156</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="addressArea">
+            <div class="invoiceArea">
+                <div class="row1">
+                    <div><span class="strong">DL NO:</span> WB/NPG/481-S,WB/NPG/481-SB</div>
+                    <div><span class="strong">CIN NO:</span> L24232WB1919PLC003123</div>
+                </div>
+                <div class="row2">
+                    <div><span class="strong">VALID UPTO:</span> 08-02-21</div>
+                    <div><span class="strong">VAT NO: </span>19420653047</div>
+                </div>
+                <div class="row3">
+                    <div><span class="strong">ORDER ID:</span> 10561</div>
+                    <div><span class="strong">INVOICE NO:</span> IN-10561-19</div>
+                </div>
+                <div class="row4">
+                    <div><span class="strong">DOCTOR:</span> Dr. Krishna Manjunath</div>
+                    <div><span class="strong">INVOICE DATE:</span> 27-April-2017 12:09</div>
+                </div>
+            </div>
+
+            <div class="addresses">
+                <section>
+                    <p><span class="strong">Patient Name:</span> Ratul Sarkar</p>
+                    <p><span class="strong">Billing Address:</span> KOL-DC-PG00-00S11, testing, Kolkata & nearby districts , West Bengal , 700043 ,India .</p>
+                    <p>Phone No: 033 4949 4949</p>
+
+                </section>
+                <section>
+                    <p><span class="strong">Customer Name:</span> Ratul Sarkar</p>
+                    <p><span class="strong">Shipping Address:</span> KOL-DC-PG00-00S11, testing, Kolkata & nearby districts , West Bengal , 700043 ,India .</p>
+                    <p>Phone No: 033 4949 4949</p>
+
+                </section>
+            </div>
+
+        </div>
+
+        <div class="mainContentArea">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Items</th>
+                        <th>Schd.</th>
+                        <th>Mfg.</th>
+                        <th>Batch No.</th>
+                        <th>Exp. Date</th>
+                        <th>Qty.</th>
+                        <th>UOM</th>
+                        <th>MRP</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% @sales_invoice.items.each do |item| %>
+                    <tr>
+                        <td>Johnson's Baby Toothbrush</td>
+                        <td></td>
+                        <td>Johnson & Johnson</td>
+                        <td>sagjh4hh</td>
+                        <td>31-12-2018</td>
+                        <td>1</td>
+                        <td>Pack</td>
+                        <td class='rightAlign'>30.0</td>
+                        <td class='rightAlign'>30.0</td>
+                    </tr>
+                    <tr>
+                        <td>Healthy and Tasty Refined Soyabean oil 1 L</td>
+                        <td></td>
+                        <td>Emami</td>
+                        <td>1235</td>
+                        <td>01-1-2017</td>
+                        <td>1</td>
+                        <td>Pouch</td>
+                        <td class='rightAlign'>630.0</td>
+                        <td class='rightAlign'>630.0</td>
+                    </tr>
+                    <tr>
+                        <td>Healthy and Tasty Refined Soyabean oil 1 L</td>
+                        <td></td>
+                        <td>Emami</td>
+                        <td>ggh</td>
+                        <td>31-12-2018</td>
+                        <td>1</td>
+                        <td>Pack</td>
+                        <td class='rightAlign'>900.0</td>
+                        <td class='rightAlign'>900.0</td>
+                    </tr>
+                    <tr>
+                        <td>Oestrogel Gel 80 GM</td>
+                        <td>Schedule H</td>
+                        <td>Besins Healthcare</td>
+                        <td>abd124</td>
+                        <td>31-12-2018</td>
+                        <td>1</td>
+                        <td>Tube</td>
+                        <td class='rightAlign'>5900.0</td>
+                        <td class='rightAlign'>5900.0</td>
+                    </tr>
+                    <tr>
+                        <td>Alzolam 650 MG</td>
+                        <td>Schedule H1</td>
+                        <td>Brain Killers</td>
+                        <td>abd124</td>
+                        <td>31-12-2018</td>
+                        <td>1</td>
+                        <td>Tablets</td>
+                        <td class='rightAlign'>5900.0</td>
+                        <td class='rightAlign'>5900.0</td>
+                    </tr>
+                    <tr>
+                        <td>Mamy Poko Pants Standard Medium 18 pcs</td>
+                        <td></td>
+                        <td>Mamy Poko Pants</td>
+                        <td>123456</td>
+                        <td>31-12-2018</td>
+                        <td>1</td>
+                        <td>Pack</td>
+                        <td class='rightAlign'>30.0</td>
+                        <td class='rightAlign'>30.0</td>
+                    </tr>
+                    <tr>
+                        <td>Johnson's Baby Toothbrush</td>
+                        <td></td>
+                        <td>Johnson & Johnson</td>
+                        <td>sagjh4hh</td>
+                        <td>31-12-2018</td>
+                        <td>1</td>
+                        <td>Pack</td>
+                        <td class='rightAlign'>30.0</td>
+                        <td class='rightAlign'>30.0</td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Gross Amount</th>
+                        <th>Less Discount (-)</th>
+                        <th>Less Promotions (-)</th>
+                        <th>Less Prepaid (-)</th>
+                        <th>Net Amount</th>
+                        <th>Convenience Fees (+)</th>
+                        <th>Payable Amount(INR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class='rightAlign'>30.0</td>
+                        <td class='rightAlign'>0.0</td>
+                        <td class='rightAlign'>0.0</td>
+                        <td class='rightAlign'>0.0</td>
+                        <td class='rightAlign'>30.0</td>
+                        <td class='rightAlign'>20.0</td>
+                        <td class='rightAlign'>50</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="amount">
+                <p>Payable amount in words: <span class='underline_amount'> INR Fifty</span> only.</p>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p>Signature of qualified person:..............................................</p>
+        </div>
+    </div>
+
+  </body>
+</html>

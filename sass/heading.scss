@@ -1,7 +1,7 @@
 @import "var.scss";
 
 .heading{
-    width: 100%;
+    width: 97%;
     margin-bottom: 5px;
         .topHeading{
         @extend .common;
@@ -14,21 +14,52 @@
     }
     .bottomHeading,{
         @extend .common;
+
+        .left{
+            display: inline-block;
+            width: 49%;
+            text-align: left;
+        }
+        .right{
+            display: inline-block;
+            width: 50%;
+            text-align: left;
+        }
+
+        .row{
+            @extend .rowCommon;
+        }
+
         h2{
             font-size: $fontSize2;
             text-align: center;
             margin: 0px;
             padding: 5px 0px;
+            // display: table-cell;
         }
         p{
             text-align: center;
+            width: 85%;
+            font-size: $fontSize4;
             margin: 0px;
-            padding: 2px 0px;
+            padding: 2px 45px;
         }
     }
 }
 
 .common{
+    display: block;
     width: 100%;
     border-bottom: 2px solid black;
+    padding: 0px 0px 0px 10px;
+}
+
+.rowCommon{
+    display: inline-block;
+    width: 100%;
+    div{
+        display: inline-block;
+        width: calc((100%/2) - 5px);
+        padding: 2px 1px;
+    }
 }

@@ -5,23 +5,31 @@
     margin-bottom: 5px;
     .invoiceArea{
         // width: 100%;
-        border-bottom: 1px solid black;
-        .row1{
+        // border-bottom: 2px solid black;
+        padding: 2px 10px;
+        display: block;
+        .row1, .row2, .row3, .row4{
             @extend .rowCommon;
         }
-        .row2{
-            @extend .rowCommon;
+        .row2, .row4{
+            border-bottom: 2px solid black;
+        }
+        .left{
+            @extend .colCommon;
+        }
+        .right{
+            @extend .colCommon;
         }
     }
     .addresses{
         width:100%;
         display: flex;
         section{
-            padding: 2px;
+            padding: 2px 10px;
             width: calc(100%/2);
             display: inline-block;
             border-right: 1px solid black;
-            border-bottom: 1px solid black;
+            border-bottom: 2px solid black;
             &:last-child{
                 border-right: 0px solid black;
             }
@@ -34,16 +42,29 @@
     }
 }
 
-
 .rowCommon{
-    display: block;
+    display: inline-block;
+    width: 100%;
     div{
         display: inline-block;
-        width: calc((100%/4) - 5px);
-        padding: 2px 0px;
+        width: calc((100%/2) - 5px);
+        padding: 2px 1px;
+
     }
 }
 
-.sectionCommon{
+.colCommon{
+    display: inline-block;
+    width: 49%;
+    div{
+        display: inline-block;
+        width: calc((100%) - 5px);
+        padding: 2px 1px;
+    }
+}
 
+.divCommon{
+    display: inline-block;
+    width: calc((100%/4) - 5px);
+    padding: 2px 1px;
 }
