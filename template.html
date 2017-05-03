@@ -59,13 +59,13 @@
                 <section>
                     <p><span class="strong">Patient Name: </span><%= @order.user %></p>
                     <p><span class="strong">Billing Address: </span><%= @order.billing_address %></p>
-                    <p><span class="strong">Phone No: </span>9674308102</p>
+                    <p><span class="strong">Phone No: </span><%= @order.user.phoneNo %></p>
 
                 </section>
                 <section>
                     <p><span class="strong">Customer Name: </span> <%= @order.user %></p>
                     <p><span class="strong">Shipping Address: </span> <%= @order.shipping_address %></p>
-                    <p><span class="strong">Phone No: </span>9674308102</p>
+                    <p><span class="strong">Phone No: </span><%= @order.user.phoneNo %></p>
 
                 </section>
             </div>
@@ -110,18 +110,16 @@
                     <tr>
                         <th>Gross Amount</th>
                         <th>Less Discount (-)</th>
-                        <th>Less Promotions (-)</th>
                         <th>Less Prepaid (-)</th>
                         <th>Net Amount</th>
                         <th>Convenience Fees (+)</th>
-                        <th>Payable Amount(INR)</th>
+                        <th>Invoice Amount</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class='rightAlign'><%= @sales_invoice.gross_amount.to_f %></td>
                         <td class='rightAlign'><%= @sales_invoice.discount_amount.to_f %></td>
-                        <td class='rightAlign'><%= @sales_invoice.promotion_amount.to_f %></td>
                         <td class='rightAlign'><%= @sales_invoice.prepaid_amount.to_f %></td>
                         <td class='rightAlign'><%= @sales_invoice.net_amount.to_f/100 %></td>
                         <td class='rightAlign'><%= @sales_invoice.convenience_fee.to_f %></td>
@@ -139,7 +137,7 @@
         <div class="footer">
             <p>Signature of qualified person:..............................................</p>
         </div>
-        
+
     </div>
 
   </body>
