@@ -22,11 +22,11 @@
         }
     }
     .addresses{
-        width:100%;
-        display: flex;
+        width:99%;
+        display: block;
         section{
-            padding: 2px 10px;
-            width: calc(95%/2);
+            padding: 2px 7px;
+            width: calc(93%/2);
             display: inline-block;
             border-right: 1px solid black;
             border-bottom: 2px solid black;
