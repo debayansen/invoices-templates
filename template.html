@@ -57,15 +57,15 @@
 
             <div class="addresses">
                 <section>
-                    <p><span class="strong">Patient Name: </span><%= @order.user %></p>
-                    <p><span class="strong">Billing Address: </span><%= @order.billing_address %></p>
-                    <p><span class="strong">Phone No: </span><%= @order.user.phoneNo %></p>
+                    <p><span class="strong">Patient Name: </span><%= address.try(:full_name) %></p>
+                    <p><span class="strong">Billing Address: </span><%= address.try(:address_line_1) %>,<%= address.try(:address_line_2) %>,<%= address.try(:city).try(:name) %>,<%= address.try(:state) %>,<%= address.try(:pincode) %>,<%= address.try(:country) %><%= address.try(:optional_details) %><%= address.try(:landmark) %> </p>
+                    <p><span class="strong">Phone No: </span><%= address.try(:phone_number) %></p>
 
                 </section>
                 <section>
-                    <p><span class="strong">Customer Name: </span> <%= @order.user %></p>
-                    <p><span class="strong">Shipping Address: </span> <%= @order.shipping_address %></p>
-                    <p><span class="strong">Phone No: </span><%= @order.user.phoneNo %></p>
+                    <p><span class="strong">Customer Name: </span><%= address.try(:full_name) %></p>
+                    <p><span class="strong">Shipping Address: </span><%= address.try(:address_line_1) %>,<%= address.try(:address_line_2) %>,<%= address.try(:city).try(:name) %>,<%= address.try(:state) %>,<%= address.try(:pincode) %>,<%= address.try(:country) %><%= address.try(:optional_details) %><%= address.try(:landmark) %> </p>
+                    <p><span class="strong">Phone No: </span><%= address.try(:phone_number) %></p>
 
                 </section>
             </div>

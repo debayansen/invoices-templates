@@ -53,38 +53,30 @@
 
             <div class="addresses">
                 <section>
-                    <p><span class="strong">Patient Name:</span> Ratul Sarkar</p>
-                    <p><span class="strong">Billing Address:</span> KOL-DC-PG00-00S11, testing, Kolkata & nearby districts , West Bengal , 700043 ,India .</p>
-                    <p>Phone No: 033 4949 4949</p>
-
-                    <p><span class="strong">Patient Name: </span><%= address.try(:full_name) %></p>
+                    <p><span class="strong">Patient Name: </span>Ratul Sarkar</p>
                     <p><span class="strong">Billing Address: </span></p>
-                    <p>   <%= address.try(:address_line_1) %>,</p>
-                    <p>   <%= address.try(:address_line_2) %>,</p>
-                    <p>   <%= address.try(:city).try(:name) %>,</p>
-                    <p>   <%= address.try(:state) %>,</p>
-                    <p>   <%= address.try(:pincode) %>,</p>
-                    <p>   <%= address.try(:country) %></p>
+                    <p>   KOL-DC-PG00-00S11,</p>
+                    <p>   testing,</p>
+                    <p>   Kolkata & nearby districts ,</p>
+                    <p>   West Bengal ,</p>
+                    <p>   700043 ,</p>
+                    <p>   India </p>
                     <p>   <%= address.try(:optional_details) %></p>
                     <p>   <%= address.try(:landmark) %></p>
-                    <p><span class="strong">Phone No: </span><%= address.try(:phone_number) %></p>
+                    <p><span class="strong">Phone No: </span> 033 4949 4949</p>
                 </section>
                 <section>
                     <p><span class="strong">Customer Name:</span> Ratul Sarkar</p>
-                    <p><span class="strong">Shipping Address:</span> KOL-DC-PG00-00S11, testing, Kolkata & nearby districts , West Bengal , 700043 ,India .</p>
-                    <p>Phone No: 033 4949 4949</p>
-
-                    <p><span class="strong">Patient Name: </span><%= address.try(:full_name) %></p>
-                    <p><span class="strong">Billing Address: </span></p>
-                    <p>   <%= address.try(:address_line_1) %>,</p>
-                    <p>   <%= address.try(:address_line_2) %>,</p>
-                    <p>   <%= address.try(:city).try(:name) %>,</p>
-                    <p>   <%= address.try(:state) %>,</p>
-                    <p>   <%= address.try(:pincode) %>,</p>
-                    <p>   <%= address.try(:country) %></p>
+                    <p><span class="strong">Shipping Address:</span></p>
+                    <p>   KOL-DC-PG00-00S11,</p>
+                    <p>   testing,</p>
+                    <p>   Kolkata & nearby districts ,</p>
+                    <p>   West Bengal ,</p>
+                    <p>   700043 ,</p>
+                    <p>   India </p>
                     <p>   <%= address.try(:optional_details) %></p>
                     <p>   <%= address.try(:landmark) %></p>
-                    <p><span class="strong">Phone No: </span><%= address.try(:phone_number) %></p>
+                    <p><span class="strong">Phone No: </span> 033 4949 4949</p>
                 </section>
             </div>
 
