@@ -1,144 +1,224 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
-    <title>invoice template</title>
-    <!-- <link rel="stylesheet" href="css/master.css"> -->
-  </head>
-  <body class="wrapper">
+    <title>Invoice</title>
 
+  </head>
+
+  <body class="wrapper" onload="number_pages()">
     <!-- For Heading Area -->
     <%= wicked_pdf_stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <link rel="stylesheet" href="css/master.css">
-    <style>
-        table thead { display: table-header-group; }
-        table tr { page-break-inside: avoid; }
-    </style>
+      <link rel="stylesheet" href="css/master.css">
+      <style>
+        table thead {
+          display: table-header-group;
+        }
 
-    <div id="page-wrapper" class="white-bg wrapper">
+        table tr {
+          page-break-inside: avoid;
+        }
+      </style>
+
+      <div id="page-wrapper" class="white-bg wrapper">
 
         <div class="heading">
-            <div class="topHeading">
-                <% if params[:cancel] %>
-                  <h1> Cancelled Tax Invoice </h1>
-                <% else %>
-                  <h1> Tax Invoice </h1>
+          <div class="topHeading">
+            <% if params[:cancel] %>
+              <h1> Cancelled Tax Invoice </h1>
+              <% else %>
+                <h1> Tax Invoice </h1>
                 <% end %>
+          </div>
+          <div class="bottomHeading">
+            <div class="row">
+              <h2>Frank Ross Pharmacy</h2>
             </div>
-            <div class="bottomHeading">
-                <div class="row">
-                    <h2>Frank Ross Pharmacy</h2>
-                </div>
-                <div class="row">
-                    <p><%= @store.address %></p>
-                </div>
+            <div class="row">
+              <p>
+                <%= @store.address %>
+              </p>
             </div>
+          </div>
         </div>
 
         <div class="addressArea">
-            <div class="invoiceArea">
-                <div class="row1">
-                    <div><span class="strong">DL NO:</span> <%= @store.drug_license_number %> </div>
-                    <div><span class="strong">CIN NO:</span> <%= Settings.warehouse.invoice.cin_number %></div>
-                </div>
-                <div class="row2">
-                    <div><span class="strong">VALID UPTO:</span> <%= @store.validity_period %>  </div>
-                    <div><span class="strong">VAT NO:</span> <%= Settings.warehouse.invoice.vat_number %></div>
-                </div>
-                <div class="row3">
-                    <div><span class="strong">ORDER ID:</span> <%= @order.id  %> </div>
-                    <div><span class="strong">INVOICE NO:</span> <%= @sales_invoice.invoice_number %></div>
-                </div>
-                <div class="row4">
-                    <div><span class="strong">DOCTOR:</span> <%= @order.doctor_names %></div>
-                    <div><span class="strong">INVOICE DATE:</span><%= @fulfillment_order.invoiced_at.strftime("%d-%B-%Y %R") if @fulfillment_order.invoiced_at %></div>
-                </div>
+          <div class="invoiceArea">
+            <div class="row1">
+              <div><span class="strong">DL NO:</span>
+                <%= @store.drug_license_number %>
+              </div>
+              <div><span class="strong">CIN NO:</span>
+                <%= Settings.warehouse.invoice.cin_number %>
+              </div>
             </div>
-
-            <div class="addresses">
-                <section>
-                    <p><span class="strong">Patient Name: </span><%= address.try(:full_name) %></p>
-                    <p><span class="strong">Billing Address: </span><%= address.try(:address_line_1) %>,<%= address.try(:address_line_2) %>,<%= address.try(:city).try(:name) %>,<%= address.try(:state) %>,<%= address.try(:pincode) %>,<%= address.try(:country) %><%= address.try(:optional_details) %><%= address.try(:landmark) %> </p>
-                    <p><span class="strong">Phone No: </span><%= address.try(:phone_number) %></p>
-
-                </section>
-                <section>
-                    <p><span class="strong">Customer Name: </span><%= address.try(:full_name) %></p>
-                    <p><span class="strong">Shipping Address: </span><%= address.try(:address_line_1) %>,<%= address.try(:address_line_2) %>,<%= address.try(:city).try(:name) %>,<%= address.try(:state) %>,<%= address.try(:pincode) %>,<%= address.try(:country) %><%= address.try(:optional_details) %><%= address.try(:landmark) %> </p>
-                    <p><span class="strong">Phone No: </span><%= address.try(:phone_number) %></p>
-
-                </section>
+            <div class="row2">
+              <div><span class="strong">VALID UPTO:</span>
+                <%= @store.validity_period %>
+              </div>
+              <div><span class="strong">VAT NO:</span>
+                <%= Settings.warehouse.invoice.vat_number %>
+              </div>
             </div>
+            <div class="row3">
+              <div><span class="strong">ORDER ID:</span>
+                <%= @order.id  %>
+              </div>
+              <div><span class="strong">INVOICE NO:</span>
+                <%= @sales_invoice.invoice_number %>
+              </div>
+            </div>
+            <div class="row4">
+              <div><span class="strong">DOCTOR:</span>
+                <%= @order.doctor_names %>
+              </div>
+              <div><span class="strong">INVOICE DATE:</span>
+                <%= @fulfillment_order.invoiced_at.strftime("%d-%B-%Y %R") if @fulfillment_order.invoiced_at %>
+              </div>
+            </div>
+          </div>
+
+          <div class="addresses">
+            <section>
+              <p><span class="strong">Patient Name: </span>
+                <%= address.try(:full_name) %>
+              </p>
+              <p><span class="strong">Billing Address: </span>
+                <%= address.try(:address_line_1) %>,
+                  <%= address.try(:address_line_2) %>,
+                    <%= address.try(:city).try(:name) %>,
+                      <%= address.try(:state) %>,
+                        <%= address.try(:pincode) %>,
+                          <%= address.try(:country) %>
+                            <%= address.try(:optional_details) %>
+                              <%= address.try(:landmark) %>
+              </p>
+              <p><span class="strong">Phone No: </span>
+                <%= address.try(:phone_number) %>
+              </p>
+
+            </section>
+            <section>
+              <p><span class="strong">Customer Name: </span>
+                <%= address.try(:full_name) %>
+              </p>
+              <p><span class="strong">Shipping Address: </span>
+                <%= address.try(:address_line_1) %>,
+                  <%= address.try(:address_line_2) %>,
+                    <%= address.try(:city).try(:name) %>,
+                      <%= address.try(:state) %>,
+                        <%= address.try(:pincode) %>,
+                          <%= address.try(:country) %>
+                            <%= address.try(:optional_details) %>
+                              <%= address.try(:landmark) %>
+              </p>
+              <p><span class="strong">Phone No: </span>
+                <%= address.try(:phone_number) %>
+              </p>
+
+            </section>
+          </div>
 
         </div>
 
         <div class="mainContentArea">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Items</th>
-                        <th>Schd.</th>
-                        <th>Mfg.</th>
-                        <th>Batch No.</th>
-                        <th>Exp. Date</th>
-                        <th>Qty.</th>
-                        <th>UOM</th>
-                        <th>MRP</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
+          <table>
+            <thead>
+              <tr>
+                <th>Items</th>
+                <th>Schd.</th>
+                <th>Mfg.</th>
+                <th>Batch No.</th>
+                <th>Exp. Date</th>
+                <th>Qty.</th>
+                <th>UOM</th>
+                <th>MRP</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
 
-                <tbody>
-                    <% @sales_invoice.items.each do |item| %>
-                    <tr>
-                        <td><%= item.variant.try(:name) %></td>
-                        <td><%= item.variant.try(:schedule) %></td>
-                        <td><%= item.variant.try(:manufacturer) %></td>
-                        <td><%= item.batch_number %></td>
-                        <td><%= item.expiry_date.strftime("%d-%-m-%Y") if item.expiry_date%></td>
-                        <td><%= item.quantity %></td>
-                        <td><%= item.variant.try(:unit_of_sale) %></td>
-                        <td class='rightAlign'><%= item.batch_mrp.to_f %></td>
-                        <td class='rightAlign'><%= item.amount.to_f %></td>
-                    </tr>
-                    <% end %>
-                </tbody>
-            </table>
+            <tbody>
+              <% @sales_invoice.items.each do |item| %>
+                <tr>
+                  <td>
+                    <%= item.variant.try(:name) %>
+                  </td>
+                  <td>
+                    <%= item.variant.try(:schedule) %>
+                  </td>
+                  <td>
+                    <%= item.variant.try(:manufacturer) %>
+                  </td>
+                  <td>
+                    <%= item.batch_number %>
+                  </td>
+                  <td>
+                    <%= item.expiry_date.strftime("%d-%-m-%Y") if item.expiry_date%>
+                  </td>
+                  <td>
+                    <%= item.quantity %>
+                  </td>
+                  <td>
+                    <%= item.variant.try(:unit_of_sale) %>
+                  </td>
+                  <td class='rightAlign'>
+                    <%= item.batch_mrp.to_f %>
+                  </td>
+                  <td class='rightAlign'>
+                    <%= item.amount.to_f %>
+                  </td>
+                </tr>
+                <% end %>
+            </tbody>
+          </table>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Gross Amount</th>
-                        <th>Less Discount (-)</th>
-                        <th>Less Prepaid (-)</th>
-                        <th>Net Amount</th>
-                        <th>Convenience Fees (+)</th>
-                        <th>Invoice Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class='rightAlign'><%= @sales_invoice.gross_amount.to_f %></td>
-                        <td class='rightAlign'><%= @sales_invoice.discount_amount.to_f %></td>
-                        <td class='rightAlign'><%= @sales_invoice.prepaid_amount.to_f %></td>
-                        <td class='rightAlign'><%= @sales_invoice.net_amount.to_f/100 %></td>
-                        <td class='rightAlign'><%= @sales_invoice.convenience_fee.to_f %></td>
-                        <td class='rightAlign'><%= @sales_invoice.payable_amount.to_f.round %></td>
-                    </tr>
-                </tbody>
-            </table>
+          <table>
+            <thead>
+              <tr>
+                <th>Gross Amount</th>
+                <th>Less Discount (-)</th>
+                <th>Less Promotions (-)</th>
+                <th>Net Amount</th>
+                <th>Convenience Fees (+)</th>
+                <th>Invoice Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class='rightAlign'>
+                  <%= @sales_invoice.gross_amount.to_f %>
+                </td>
+                <td class='rightAlign'>
+                  <%= @sales_invoice.discount_amount.to_f %>
+                </td>
+                <td class='rightAlign'>
+                  <%= @sales_invoice.prepaid_amount.to_f %>
+                </td>
+                <td class='rightAlign'>
+                  <%= @sales_invoice.net_amount.to_f/100 %>
+                </td>
+                <td class='rightAlign'>
+                  <%= @sales_invoice.convenience_fee.to_f %>
+                </td>
+                <td class='rightAlign'>
+                  <%= @sales_invoice.payable_amount.to_f.round %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
-            <div class="amount">
-                <p>Payable amount in words: <span class='underline_amount'> INR <%=  @sales_invoice.payable_amount.to_f.round.humanize(decimals_as: :digits).gsub('-',' ').camelcase %></span> only.</p>
-            </div>
+          <div class="amount">
+            <p>Invoice amount in words: <span class='underline_amount'> INR <%=  @sales_invoice.payable_amount.to_f.round.humanize(decimals_as: :digits).gsub('-',' ').camelcase %></span> only.</p>
+          </div>
 
         </div>
 
         <div class="footer">
-            <p>Signature of qualified person:..............................................</p>
+          <p>Signature of qualified person:..............................................</p>
         </div>
 
-    </div>
-
+      </div>
   </body>
+
 </html>
